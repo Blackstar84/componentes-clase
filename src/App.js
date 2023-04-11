@@ -20,13 +20,27 @@ class App extends React.Component{
         }
     }
 
+    componentDidMount(){
+        console.log('Fui Creado!')
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        console.log(prevState, this.state)
+        console.log('Fui Actualizado!')
+    }
+
+    updateCounter = ()=>{
+        this.setState({contador: this.state.contador + 1})
+    }
+
   render(){
     console.log(this.props);
         return(
             <div>
                 
                 <p>Contador: {this.state.contador} </p>
-                <button onClick={()=> this.setState({contador: this.state.contador + 1 }) }>Sumar</button>
+                <button onClick={this.updateCounter }>Sumar</button>                
+                {/* <button onClick={()=> this.setState({contador: this.state.contador + 1 }) }>Sumar</button> */}
             </div>
         ) 
     
